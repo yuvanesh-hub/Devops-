@@ -1,0 +1,20 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main  # Trigger on changes to the main branch (or master, or another branch)
+
+pool:
+  vmImage: 'ubuntu-latest'  # Select the OS to use for the build
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'  # Use Python 3.x
+    addToPath: true
+
+- script: |
+    python Demo.py
+  displayName: 'Run Demo.py'
